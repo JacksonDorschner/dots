@@ -1,0 +1,163 @@
+@import url("../../../../../home/jackson/colors-waybar.css");
+/*@import url("temp-color.css");*/
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrainsMono NFM";
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: @background;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 2.5px;
+    border: 2.5px solid @color4;
+    margin-top: 10px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#clock {
+    color: @color3;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-right: 7;
+    font-family: "JetBrainsMono NFM";
+}
+
+#custom-pomodoro {
+    color: @color3;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-left: 7;
+}
+
+#custom-power {
+    color: @color4;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-left: 7;
+}
+
+
+#custom-power:hover {
+    background-color: @color3;
+    color: #2e3440;
+}
+
+#custom-mic {
+    color: @color3;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-right: 7;
+}
+
+#custom-mic:hover {
+    background-color: @background;
+    color: #2e3440;
+}
+
+#network {
+    color: @color4;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-right: 7;
+}
+
+#network.disconnected {
+    color: #bf616a;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid #bf616a;
+    border-radius: 2.5;
+    margin: 5;
+    margin-right: 7;
+}
+
+#workspaces {
+    color: @background;
+    background-color: @background;
+    padding: 0 5;
+    margin: 5;
+}
+#workspaces button{
+    color: @foreground;
+    background-color: @background;
+    padding: 0 5;
+    margin: 5;
+    margin-left: 7;
+}
+#workspaces button:hover{
+    color: @color4;
+    background-color: @background;
+    padding: 0 5;
+    margin: 5;
+    margin-left: 7;
+}
+#workspaces button.active{
+    color: @color5;
+    background-color: @background;
+    padding: 0 5;
+    margin: 5;
+    margin-left: 7;
+}
+#workspaces button.special{
+    color: #b48ead;
+    background-color: @background;
+    padding: 0 5;
+    margin: 5;
+    margin-left: 7;
+}
+#workspaces button.urgent{
+    padding: 0 5;
+    margin: 5;
+    margin-right: 7;
+    border-radius: 2.5;
+    animation: blink 1s infinite;
+} @keyframes blink {
+    0% { background-color: @color3;
+         color: @background; }
+    50% { background-color: @background;
+          color: @color3; }
+    100% { background-color: @color3;
+        color: @background; }
+}
+
+#wireplumber {
+    color: @color3;
+    background-color: @background;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-left: 7;
+}
+
+#wireplumber.muted {
+    color: #bf616a;
+    background-color: #21252c;
+    padding: 0 5;
+    border: 2px solid @color4;
+    border-radius: 2.5;
+    margin: 5;
+    margin-left: 7;
+    
+}

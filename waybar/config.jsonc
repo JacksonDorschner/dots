@@ -1,0 +1,86 @@
+// -*- mode: jsonc -*-
+{
+    "height": 45, // Waybar height (to be removed for auto height)
+    "width": 1880, // Waybar width
+    "spacing": 8, // Gaps between modules (4px)
+    "margin-top": 10,
+
+    "modules-left": [
+        "custom/power",
+        "clock",
+        "custom/mic",
+        "network"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/pomodoro",
+        "wireplumber"
+    ],
+
+    "custom/power": {
+        "format": "[ <span font-family='Material Icons Round' rise='-2700' >power_settings_new</span> ]",
+        "tooltip-format": "Power Menu",
+        "on-click": "~/.config/waybar/scripts/power.sh",
+        "interval": 99999
+    },
+    "clock": {
+        "format": "[ <span font-family='Material Icons Round' rise='-2000' >schedule</span> {:%I:%M %p} ]",
+        "tooltip-format": "{:%A, %B %d, %Y %I:%M %p}"
+      },
+    "custom/mic": {
+        "format": "[ <span font-family='Material Icons Round' rise='-2700' >{}</span> ]",
+        "exec": "~/.config/waybar/scripts/mic-status.sh",
+        "on-click": "~/.config/waybar/scripts/mic-toggle.sh",
+        "interval": 1,
+        "tooltip-format": "Microphone Mute"
+    },
+    "network": {
+        "format": "[ <span font-family='Material Icons Round' rise='-2700' >polyline</span> ]",
+        "format-disconnected": "[ <span font-family='Material Icons Round' rise='-2700' >cloud_off</span> ]" ,
+        "interval": 1,
+        "tooltip-format": "Uplink: {bandwidthUpBits} | Downlink: {bandwidthDownBits}\nIP Addr: {ipaddr}"
+    },
+    "hyprland/workspaces": {
+        "format": "[{icon}]",
+        "format-icons": {
+            "1": " Л ",
+            "2": " Ц ",
+            "3": " Б ",
+            "4": " Ф ",
+            "5": " Г ",
+            "active": "[]",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": [ 2,3,4,5 ], // 2-5 on every monitor
+            "HDMI-A-1": [ 1 ] // but only workspace 1 on HDMI-A-1
+        }
+    },
+    "custom/volume": {
+        "exec": "~/.config/waybar/scripts/volume-bar.sh",
+        "interval": 1,
+        "return-type": "json",
+        "markup": "pango",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    }, 
+    "wireplumber": {
+        "format": "<span font-family='Material Icons Round' rise='-2700' >volume_up</span> [{volume}%]",
+        "format-muted": "<span font-family='Material Icons Round'>volume_off</span>",
+        "max-volume": 1,
+        "on-click": ""
+    },
+    "custom/pomodoro": {
+        "format": "[ <span font-family='JetBrainsMono NFM'  >{}</span> ]",
+        "return-type": "json",
+        "exec": "waybar-module-pomodoro --persist",
+        "on-click": "waybar-module-pomodoro toggle",
+        "on-click-right": "waybar-module-pomodoro reset",
+    }
+
+    
+    
+}
